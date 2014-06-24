@@ -11,26 +11,33 @@ module.exports = function(grunt) {
 		          condense: true,
 		          newlines: true
 		        },
-		        assets: 'assets/',
-		        helpers: 'templates/helpers/*.js',
-		        partials: 'templates/includes/*.hbs',
-		        layoutdir: 'templates/layouts',
+		        assets: 'dist/assets/',
+		        helpers: 'src/templates/helpers/*.js',
+		        partials: 'src/templates/includes/*.hbs',
+		        layoutdir: 'src/templates/layouts',
 		        layout: 'default.hbs',
 		    },
-	      	page001: {
-	      		files: {'dist/001/': ['001/index.hbs']},
+	      	globals: {
+	      		files: {'dist/globals': ['globals/index.hbs']},
 	      		options: {
-	      			partials: '001/*.hbs',
-	      			data: '001/*.json'
+	      			partials: 'globals/*.hbs',
+	      			data: 'globals/*.json'
 	      		}
 	      	},
-			page002: {
-				files: {'dist/002/': ['002/index.hbs']},
-				options: {
-					partials: '002/*.hbs',
-					data: '002/*.json'
-				}
-			},
+			modules: {
+	      		files: {'dist/modules': ['modules/index.hbs']},
+	      		options: {
+	      			partials: 'modules/*.hbs',
+	      			data: 'modules/*.json'
+	      		}
+	      	},
+	      	objects: {
+	      		files: {'dist/objects': ['objects/index.hbs']},
+	      		options: {
+	      			partials: 'objects/*.hbs',
+	      			data: 'objects/*.json'
+	      		}
+	      	},
 		},
 		clean: ['dist/**/*'],
 		connect: {
@@ -47,10 +54,10 @@ module.exports = function(grunt) {
 		less: {
 			development: {
 				options: {
-					paths: ["assets/css"]
+					paths: ["dist/assets/css"]
 				},
 					files: {
-					"assets/css/main.css": "src/less/main.less"
+					"dist/assets/css/main.css": "src/less/main.less"
 				},
 			},
 		},
@@ -60,7 +67,7 @@ module.exports = function(grunt) {
 					livereload: true,
 				},
 			hbs: {
-				files: ['001/*.hbs', 'templates/**/*.hbs'],
+				files: ['globals/*.hbs', 'modules/*.hbs', 'objects/*.hbs', 'templates/**/*.hbs'],
 				tasks: ['assemble'],
 			},
 			less: {
@@ -79,5 +86,5 @@ module.exports = function(grunt) {
   	grunt.loadNpmTasks('grunt-contrib-watch');
   	// Default task to be run.
   	grunt.registerTask('default', ['clean', 'assemble']);
-  	grunt.registerTask('test', ['clean', 'less', 'assemble', 'connect', 'watch']);
+  	grunt.registerTask('serve', ['clean', 'less', 'assemble', 'connect', 'watch']);
 };
