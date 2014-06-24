@@ -1,0 +1,44 @@
+{
+	"h1": {
+		"label": "H1 heading",
+		"tag": "h1",
+		"class": "",
+		"example": "The quick brown fox jumps over the lazy dog"
+	},
+	"h2": {
+		"label": "H2 heading",
+		"tag": "h2",
+		"class": "",
+		"example": "The quick brown fox jumps over the lazy dog"
+	},
+	"h3": {
+		"label": "H3 heading",
+		"tag": "h3",
+		"class": "",
+		"example": "The quick brown fox jumps over the lazy dog"
+	},
+	"h1-subtitle": {
+		"label": "Subtitle H1 heading",
+		"tag": "h1",
+		"class": "subtitle",
+		"example": "The quick brown fox jumps over the lazy dog"
+	},
+	"h2-subtitle": {
+		"label": "H2 heading",
+		"tag": "h2",
+		"class": "subtitle",
+		"example": "The quick brown fox jumps over the lazy dog"
+	},
+	"h3-subtitle": {
+		"label": "H3 heading",
+		"tag": "h3",
+		"class": "subtitle",
+		"example": "The quick brown fox jumps over the lazy dog"
+	},
+	"body-copy": {
+		"label": "body copy",
+		"tag": "p",
+		"class": "",
+		"example": "The quick brown fox jumps over the lazy dog"
+	}
+}
