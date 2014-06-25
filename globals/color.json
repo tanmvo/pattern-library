@@ -1,0 +1,17 @@
+{
+	"section-label": "Colors",
+	"obj": {
+		"primary": {
+			"label": "Primary color: Black",
+			"class": "primary"
+		},
+		"secondary": {
+			"label": "Secondary color: Green",
+			"class": "secondary"
+		},
+		"gray-light": {
+			"label": "Gray Light",
+			"class": "gray-light"
+		}
+	}
+}

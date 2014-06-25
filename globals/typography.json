@@ -1,44 +1,42 @@
 {
-	"h1": {
-		"label": "H1 heading",
-		"tag": "h1",
-		"class": "",
-		"example": "The quick brown fox jumps over the lazy dog"
-	},
-	"h2": {
-		"label": "H2 heading",
-		"tag": "h2",
-		"class": "",
-		"example": "The quick brown fox jumps over the lazy dog"
-	},
-	"h3": {
-		"label": "H3 heading",
-		"tag": "h3",
-		"class": "",
-		"example": "The quick brown fox jumps over the lazy dog"
-	},
-	"h1-subtitle": {
-		"label": "Subtitle H1 heading",
-		"tag": "h1",
-		"class": "subtitle",
-		"example": "The quick brown fox jumps over the lazy dog"
-	},
-	"h2-subtitle": {
-		"label": "H2 heading",
-		"tag": "h2",
-		"class": "subtitle",
-		"example": "The quick brown fox jumps over the lazy dog"
-	},
-	"h3-subtitle": {
-		"label": "H3 heading",
-		"tag": "h3",
-		"class": "subtitle",
-		"example": "The quick brown fox jumps over the lazy dog"
-	},
-	"body-copy": {
-		"label": "body copy",
-		"tag": "p",
-		"class": "",
-		"example": "The quick brown fox jumps over the lazy dog"
+	"section-label": "Typography",
+	"obj": {
+		"h1": {
+			"label": "H1 heading",
+			"tag": "h1",
+			"example": "The quick brown fox jumps over the lazy dog"
+		},
+		"h2": {
+			"label": "H2 heading",
+			"tag": "h2",
+			"example": "The quick brown fox jumps over the lazy dog"
+		},
+		"h3": {
+			"label": "H3 heading",
+			"tag": "h3",
+			"example": "The quick brown fox jumps over the lazy dog"
+		},
+		"h4": {
+			"label": "H4 heading",
+			"tag": "h4",
+			"example": "The quick brown fox jumps over the lazy dog"
+		},
+		"lead": {
+			"label": "Lead copy",
+			"tag": "p",
+			"class": "lead",
+			"example": "The quick brown fox jumps over the lazy dog"
+		},
+		"body-copy": {
+			"label": "Body copy",
+			"tag": "p",
+			"example": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+		},
+		"small-copy": {
+			"label": "Small copy",
+			"tag": "p",
+			"class": "small",
+			"example": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+		}
 	}
 }

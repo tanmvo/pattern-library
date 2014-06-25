@@ -1,0 +1,59 @@
+// Custom base elements
+
+body {
+	font-family: @font-family-base;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: @font-family-title;
+}
+
+// Custom Bootstrap Styles
+
+.lead  {
+	font-family: @font-family-subtitle;
+	font-weight: 300;
+}
+
+.make-row(@gutter: @grid-gutter-width) {
+  margin-bottom: (@gutter / 3);
+  &:extend(.clearfix all);
+}
+
+.small {
+	color: @gray-light;
+}
+
+// Custom Objects
+
+.o-obj-description p {
+	margin-top: @line-height-computed;
+}
+
+.o-img-container {
+	@media (max-width: @screen-xs-max) {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+.o-color-block {
+	height: (@line-height-computed * 4.5);
+	
+}
+
+.primary {
+	background-color: @text-color;
+}
+
+.secondary {
+	background-color: @brand-primary;
+}
+
+.gray-light {
+	background-color: @gray-light;
+}
+
+// Custom Modules
+
+// Custom Layouts

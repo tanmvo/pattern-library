@@ -50,7 +50,15 @@ module.exports = function(grunt) {
 			},
 			livereload: true,
 		},
-		copy: {},
+		copy: {
+			images: {
+				expand: true,
+			    cwd: 'src/img/',
+			    src: '**',
+			    dest: 'dist/assets/img/',
+			    flatten: true,
+			}
+		},
 		less: {
 			development: {
 				options: {
@@ -86,5 +94,5 @@ module.exports = function(grunt) {
   	grunt.loadNpmTasks('grunt-contrib-watch');
   	// Default task to be run.
   	grunt.registerTask('default', ['clean', 'assemble']);
-  	grunt.registerTask('serve', ['clean', 'less', 'assemble', 'connect', 'watch']);
+  	grunt.registerTask('serve', ['clean', 'less', 'copy', 'assemble', 'connect', 'watch']);
 };
