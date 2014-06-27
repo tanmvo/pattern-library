@@ -1,0 +1,26 @@
+{
+  "name": "styleguide",
+  "version": "0.0.0",
+  "homepage": "https://github.com/thetanman/styleguide",
+  "authors": [
+    "Tan Vo <tan.m.vo@gmail.com>"
+  ],
+  "description": "StyleGuide by @thetanman",
+  "main": "app.js",
+  "keywords": [
+    "styleguide",
+    "web",
+    "app"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.2.0"
+  }
+}
