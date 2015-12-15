@@ -3,6 +3,8 @@
 module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
+		site: grunt.file.readYAML('_config.yaml'),
+
 		assemble: {
 			options: {
 		        flatten: true,
@@ -59,17 +61,6 @@ module.exports = function(grunt) {
 			    flatten: true,
 			}
 		},
-		less: {
-			development: {
-				options: {
-					paths: ["dist/assets/css"]
-				},
-					files: {
-					"dist/assets/css/main.css": "src/less/main.less"
-				},
-			},
-		},
-		replace: {},
 		watch: {
 			options: {
 					livereload: true,
@@ -84,15 +75,15 @@ module.exports = function(grunt) {
 			}
 		},
 	});
+	
 	// Load npm plugins to provide necessary tasks.
-  	grunt.loadNpmTasks('assemble');
-  	grunt.loadNpmTasks('grunt-contrib-clean');
-  	grunt.loadNpmTasks('grunt-contrib-connect');
+	grunt.loadNpmTasks('assemble');
+	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-copy');
-	grunt.loadNpmTasks('grunt-contrib-less');
-	grunt.loadNpmTasks('grunt-text-replace');
-  	grunt.loadNpmTasks('grunt-contrib-watch');
-  	// Default task to be run.
-  	grunt.registerTask('default', ['clean', 'assemble']);
-  	grunt.registerTask('serve', ['clean', 'less', 'copy', 'assemble', 'connect', 'watch']);
+	grunt.loadNpmTasks('grunt-contrib-watch');
+	
+	// Grunt tasks
+	grunt.registerTask('default', ['clean', 'assemble']);
+	grunt.registerTask('serve', ['clean', 'less', 'copy', 'assemble', 'connect', 'watch']);
 };

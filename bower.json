@@ -1,16 +1,17 @@
 {
   "name": "styleguide",
   "version": "0.0.0",
-  "homepage": "https://github.com/thetanman/styleguide",
+  "homepage": "https://github.com/thetanman/pattern-library",
   "authors": [
     "Tan Vo <tan.m.vo@gmail.com>"
   ],
-  "description": "StyleGuide by @thetanman",
+  "description": "Pattern Library by Tan Vo. Twitter: @baconchains",
   "main": "app.js",
   "keywords": [
     "styleguide",
     "web",
-    "app"
+    "app",
+    "pattern-library"
   ],
   "license": "MIT",
   "ignore": [
@@ -21,6 +22,6 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "~3.2.0"
+    
   }
 }

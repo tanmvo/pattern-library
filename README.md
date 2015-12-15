@@ -1,3 +1,4 @@
-# StyleGuide
+# Pattern Library
 
-A Style Guide Boilerplate for client use. Uses `Less` and `assemble.io` to generate HTML and CSS.
+A Modular Pattern Library Boilerplate. Based on [Brad Frost's Atomic Design Methodology](http://atomicdesign.bradfrost.com/). Uses Sass and assemble.io to generate static HTML and CSS.
+
