@@ -4,7 +4,6 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		site: grunt.file.readYAML('_config.yaml'),
-
 		assemble: {
       options: {
         flatten: false,
@@ -17,7 +16,7 @@ module.exports = function(grunt) {
     		expand: true,
     		cwd: '<%= site.pages %>/',
         src: ['**/*.hbs', '*.hbs'],
-        dest: 'dist/'
+        dest: '<%= site.dest %>'
       }
     },
 		clean: ['dist/**/*'],
@@ -27,38 +26,75 @@ module.exports = function(grunt) {
 				livereload: 35729,
 				hostname: 'localhost',
 				open: {appName: 'Google Chrome'},
-				base: ['dist/']
+				base: ['<%= site.dest %>']
 			},
 			livereload: true,
 		},
+    concurrent: {
+      dist: ['assemble', 'sass'],
+    },
 		copy: {
 			images: {
 				expand: true,
-			    cwd: 'src/img/',
-			    src: '**',
-			    dest: 'dist/assets/img/',
-			    flatten: true,
-			}
+		    cwd: 'src/img/',
+		    src: '**',
+		    dest: 'dist/assets/img/',
+		    flatten: true,
+			},
+      twbsjs: {
+        expand: true,
+        cwd: 'bower_components/bootstrap-sass/assets/javascripts/',
+        src: 'bootstrap.min.js',
+        dest: 'dist/assets/js/',
+        flatten: true,
+      },
 		},
-    sass: {},
+    sass: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= site.sass %>/',
+          src: ['main.scss'],
+          dest: '<%= site.dest %>/assets/css/',
+          ext: '.css'
+        }]
+      }
+    },
 		watch: {
 			options: {
 					livereload: true,
 				},
 			hbs: {
-				files: ['./index.hbs', 'atoms/*.hbs', 'molecules/*.hbs', 'organisms/*.hbs', 'templates/*.hbs', 'pages/*.hbs'],
+				files: ['<%= site.pages%>/*.hbs', '<%= site.pages%>/**/*.hbs'],
 				tasks: ['assemble'],
 			},
-			less: {
-				files: ['src/less/*.less'],
-				tasks: ['less']
-			}
+			sass: {
+				files: ['src/sass/*.scss'],
+				tasks: ['newer:sass'],
+        options: {
+          livereload: false
+        }
+			},
+      grunt: {
+        files: ['Gruntfile.js'],
+      },
+      livereload: {
+        options: {
+          livereload: '<%= connect.options.livereload %>'
+        },
+        files: [
+          '<%= site.dest %>/*.html',
+          '<%= site.assets %>/css/*.scss',
+          '<%= site.assets %>/img/*.{gif,jpg,jpeg,png,svg,webp}'
+        ]
+      },
 		},
 	});
 	
 	// Load npm plugins to provide necessary tasks.
-	grunt.loadNpmTasks('assemble');
-	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-assemble');
+	grunt.loadNpmTasks('grunt-concurrent');
+  grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-sass');
@@ -66,5 +102,5 @@ module.exports = function(grunt) {
 	
 	// Grunt tasks
 	grunt.registerTask('default', ['clean', 'assemble']);
-	grunt.registerTask('serve', ['clean', 'copy', 'assemble', 'connect', 'watch']);
+	grunt.registerTask('serve', ['clean', 'copy', 'concurrent', 'connect', 'watch']);
 };

@@ -3,15 +3,15 @@
 # =============================================
 
 root:             .
-dest:             <%= site.root %>
+dest:             <%= site.root %>/dist
 assets:           <%= site.root %>/assets
 
 src:              <%= site.root %>/src
 templates:        <%= site.src %>/templates
-
+sass:             <%= site.src %>/sass
 
 data:             <%= site.templates %>/_data
 helpers:          <%= site.templates %>/_helpers
 includes:         <%= site.templates %>/_includes
 layouts:          <%= site.templates %>/_layouts
-pages:          <%= site.templates %>/_pages
+pages:            <%= site.templates %>/_pages
