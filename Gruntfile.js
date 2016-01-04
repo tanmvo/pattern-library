@@ -6,41 +6,20 @@ module.exports = function(grunt) {
 		site: grunt.file.readYAML('_config.yaml'),
 
 		assemble: {
-			options: {
-		        flatten: true,
-		        prettify: {
-		          indent: 2,
-		          condense: true,
-		          newlines: true
-		        },
-		        assets: 'dist/assets/',
-		        helpers: 'src/templates/helpers/*.js',
-		        partials: 'src/templates/includes/*.hbs',
-		        layoutdir: 'src/templates/layouts',
-		        layout: 'default.hbs',
-		    },
-	      	globals: {
-	      		files: {'dist/globals': ['globals/index.hbs']},
-	      		options: {
-	      			partials: 'globals/*.hbs',
-	      			data: 'globals/*.json'
-	      		}
-	      	},
-			modules: {
-	      		files: {'dist/modules': ['modules/index.hbs']},
-	      		options: {
-	      			partials: 'modules/*.hbs',
-	      			data: 'modules/*.json'
-	      		}
-	      	},
-	      	objects: {
-	      		files: {'dist/objects': ['objects/index.hbs']},
-	      		options: {
-	      			partials: 'objects/*.hbs',
-	      			data: 'objects/*.json'
-	      		}
-	      	},
-		},
+      options: {
+        flatten: false,
+        partials: ['<%= site.includes %>/*.hbs'],
+        helpers: ['<%= site.helpers %>/helper-*.js'],
+        layout: '<%= site.layouts %>/default.hbs',
+        data: ['<%= site.data %>/*.{json,yml}'],
+      },
+      pages: {
+    		expand: true,
+    		cwd: '<%= site.pages %>/',
+        src: ['**/*.hbs', '*.hbs'],
+        dest: 'dist/'
+      }
+    },
 		clean: ['dist/**/*'],
 		connect: {
 			options: {
@@ -61,12 +40,13 @@ module.exports = function(grunt) {
 			    flatten: true,
 			}
 		},
+    sass: {},
 		watch: {
 			options: {
 					livereload: true,
 				},
 			hbs: {
-				files: ['globals/*.hbs', 'modules/*.hbs', 'objects/*.hbs', 'templates/**/*.hbs'],
+				files: ['./index.hbs', 'atoms/*.hbs', 'molecules/*.hbs', 'organisms/*.hbs', 'templates/*.hbs', 'pages/*.hbs'],
 				tasks: ['assemble'],
 			},
 			less: {
@@ -81,9 +61,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	
 	// Grunt tasks
 	grunt.registerTask('default', ['clean', 'assemble']);
-	grunt.registerTask('serve', ['clean', 'less', 'copy', 'assemble', 'connect', 'watch']);
+	grunt.registerTask('serve', ['clean', 'copy', 'assemble', 'connect', 'watch']);
 };

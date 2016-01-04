@@ -2,6 +2,16 @@
 # Build config
 # =============================================
 
-root:             ./
+root:             .
 dest:             <%= site.root %>
-assets:           <%= site.dest %>/assets
+assets:           <%= site.root %>/assets
+
+src:              <%= site.root %>/src
+templates:        <%= site.src %>/templates
+
+
+data:             <%= site.templates %>/_data
+helpers:          <%= site.templates %>/_helpers
+includes:         <%= site.templates %>/_includes
+layouts:          <%= site.templates %>/_layouts
+pages:          <%= site.templates %>/_pages
