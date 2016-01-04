@@ -29,3 +29,5 @@ tmp
 temp
 vendor
 *.sublime-*
+
+.sass-cache
