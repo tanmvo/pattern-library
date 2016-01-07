@@ -65,7 +65,7 @@ module.exports = function(grunt) {
 					livereload: true,
 				},
 			hbs: {
-				files: ['<%= site.pages%>/*.hbs', '<%= site.pages%>/**/*.hbs'],
+				files: ['<%= site.pages%>/*.hbs', '<%= site.pages %>/**/*.hbs', '<%= site.layouts %>/*.hbs', '<%= site.includes %>/*.hbs'],
 				tasks: ['assemble'],
 			},
 			sass: {

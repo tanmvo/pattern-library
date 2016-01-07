@@ -4,11 +4,22 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{ title }}</title>
-	<meta name="description" content="">
+	  <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/main.css">
 </head>
 <body>
-	{{> body }}
+  {{> header }}
+  <div class="container">
+   <div class="row">
+     <div class="col-xs-12">
+       {{> body }}
+     </div>
+   </div> 
+  </div>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="../assets/js/bootstrap.min.js"></script>
 </body>
 </html>
